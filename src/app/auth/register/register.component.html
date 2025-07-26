@@ -1,0 +1,39 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card shadow rounded">
+        <div class="card-body">
+          <h3 class="text-center mb-4 text-primary">🚗 Register to GoCar</h3>
+
+          <form (ngSubmit)="register()">
+            <div class="mb-3">
+              <label class="form-label">Full Name</label>
+              <input [(ngModel)]="fullName" name="fullName" class="form-control" required />
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Email</label>
+              <input [(ngModel)]="email" name="email" type="email" class="form-control" required />
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Password</label>
+              <input [(ngModel)]="password" name="password" type="password" class="form-control" required />
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Role</label>
+              <select [(ngModel)]="role" name="role" class="form-select" required>
+                <option value="CLIENT">Client</option>
+                <option value="ADMIN">Admin</option>
+              </select>
+            </div>
+
+            <button class="btn btn-primary w-100">Register</button>
+          </form>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
