@@ -6,6 +6,7 @@ export class TokenService {
 
   setToken(token: string): void {
     localStorage.setItem(this.tokenKey, token);
+        console.log('Saved token:', token);
   }
 
   getToken(): string | null {

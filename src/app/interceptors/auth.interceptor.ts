@@ -6,6 +6,9 @@ export const authInterceptor: HttpInterceptorFn = (req, next) => {
   const tokenService = inject(TokenService);
   const token = tokenService.getToken();
 
+  // console.log('Interceptor called');
+  // console.log('Token from localStorage:', token);
+
   if (token) {
     const authReq = req.clone({
       setHeaders: {
@@ -16,4 +19,6 @@ export const authInterceptor: HttpInterceptorFn = (req, next) => {
   }
 
   return next(req);
+
+
 };
