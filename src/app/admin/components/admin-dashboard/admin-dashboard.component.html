@@ -5,7 +5,7 @@
       <li><a routerLink="/admin-dashboard">Home</a></li>
       <li><a href="#">Cars</a></li>
       <li><a href="#">Users</a></li>
-      <li><a href="#" (click)="logout()">Logout</a></li>
+      <li><a *ngIf="isLoggedIn()" (click)="logout()">Logout</a></li>
     </ul>
   </aside>
 

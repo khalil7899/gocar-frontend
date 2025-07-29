@@ -17,6 +17,7 @@ export class AdminDashboardComponent {
 
   constructor(private http: HttpClient, private router: Router) {}
 
+
   ngOnInit(): void {
     this.fetchCars();
   }
@@ -33,9 +34,24 @@ export class AdminDashboardComponent {
       });
   }
 
-  logout() {
-    localStorage.clear();
-    this.router.navigate(['/login']);
+  isLoggedIn(): boolean {
+    return !!localStorage.getItem('authToken');
+  }
+
+  logout(): void {
+    this.http.post('http://localhost:8080/api/auth/logout', {}).subscribe({
+      next: () => {
+        console.log("Logged out successfully on backend");
+      },
+      error: err => {
+        console.warn("Backend logout failed", err);
+      },
+      complete: () => {
+        localStorage.removeItem('authToken');
+        localStorage.removeItem('role');
+        this.router.navigate(['/login']);
+      }
+    });
   }
 
 }
